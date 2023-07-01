@@ -1,3 +1,4 @@
+
 import CharacterCard from './CharacterCard';
 
 const CharactersList = ({ characters }) => {

@@ -1,5 +1,6 @@
 // Hooks
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 // Styles
 import '../styles/App.scss';
 // services and Components
@@ -8,6 +9,7 @@ import ls from '../services/localStorage';
 import Header from './Header';
 import CharactersList from './CharactersList';
 import FilterByName from './Filters';
+import CharacterDetail from './CharacterDetail';
 
 function App() {
   // State variables
@@ -16,7 +18,7 @@ function App() {
 
   // useEffect: use localStorage first to prevent too many petitions to API
   useEffect(() => {
-    if (ls.get('characters', null) === null){
+    if (ls.get('characters', null) === null) {
       CallToApi().then((cleanData) => {
         setCharacters(cleanData);
         ls.set('characters', cleanData);
@@ -27,7 +29,7 @@ function App() {
   //functions
   const handleFilter = (value) => {
     setFilterName(value);
-  }
+  };
 
   // function to filter name
 
@@ -37,13 +39,23 @@ function App() {
 
   return (
     <>
-      <Header />
-      <main className='main'>
-        <FilterByName filterName={filterName} handleFilter={handleFilter} />
-        <section className='characters'>
-          <CharactersList characters={filteredCharacters} />
-        </section>
-      </main>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <Header />
+              <main className='main'>
+                <FilterByName filterName={filterName} handleFilter={handleFilter} />
+                <section className='characters'>
+                  <CharactersList characters={filteredCharacters} />
+                </section>
+              </main>
+            </>
+          }
+        />
+        <Route path='/character/:characterId' element={<CharacterDetail characters={filteredCharacters} />} />
+      </Routes>
     </>
   );
 }
