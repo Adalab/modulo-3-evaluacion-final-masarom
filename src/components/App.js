@@ -37,8 +37,6 @@ function App() {
     eachCharacter.name.toLowerCase().includes(filterName.toLowerCase())
   );
 
-  
-
   // find dinamic routes of every character
   const { pathname } = useLocation();
   const routeData = matchPath('/character/:characterId', pathname);
@@ -56,7 +54,7 @@ function App() {
               <main className='main'>
                 <FilterByName filterName={filterName} handleFilter={handleFilter} />
                 <section className='characters'>
-                  <CharactersList characters={filteredCharacters}/>
+                  <CharactersList characters={filteredCharacters} />
                 </section>
               </main>
             </>
