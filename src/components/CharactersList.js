@@ -1,18 +1,13 @@
-import CharacterCard from "./CharacterCard";
+import CharacterCard from './CharacterCard';
 
-const CharactersList = ({characters}) => {
-    console.log(characters);
-    const charactersLi = characters.map((eachCharacter) => {
-        
-    })
+const CharactersList = ({ characters }) => {
+  const charactersLi = characters.map((eachCharacter) => (
+    <li className='character__card' key={eachCharacter.id}>
+      <CharacterCard eachCharacter={eachCharacter} />
+    </li>
+  ));
 
-  return (
-    <ul>
-      <li>
-        <CharacterCard characters={characters} />
-      </li>
-    </ul>
-  );
-}
+  return <ul>{charactersLi}</ul>;
+};
 
 export default CharactersList;
