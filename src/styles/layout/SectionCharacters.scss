@@ -1,5 +1,15 @@
-.character__card {
-    &--image {
-        width: 200px;
+.character {
+  &__list {
+  }
+  &__card {
+    font-size: 1.4rem;
+
+    &--link {
+      text-decoration: none;
+      color: black;
     }
+    &--image {
+      width: 200px;
+    }
+  }
 }

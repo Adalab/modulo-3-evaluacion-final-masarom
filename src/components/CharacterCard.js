@@ -4,7 +4,7 @@ import '../styles/layout/SectionCharacters.scss';
 const CharacterCard = ({ eachCharacter }) => {
   return (
     <>
-      <Link to={'character/' + eachCharacter.id} className='active'>
+      <Link to={'character/' + eachCharacter.id} className='character__card--link'>
         <img
           className='character__card--image'
           src={eachCharacter.image}
