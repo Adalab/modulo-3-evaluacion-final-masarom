@@ -1,26 +1,33 @@
 import { Link } from "react-router-dom";
+import '../styles/layout/SectionCharacterDetail.scss';
 
 const CharacterDetail = ({ findCharacter }) => {
   return (
     <>
       <section className='character__detail'>
-        <img
-          className='character__card--image'
-          src={findCharacter.image}
-          alt={`Foto de ${findCharacter.name}`}
-          title={`Foto de ${findCharacter.name}`}
-        />
-        <h3 className='character__card--name'>{findCharacter.name}</h3>
-        <p className='character__card--species'>{findCharacter.species}</p>
-        <p className='character__card--origin'>{findCharacter.origin}</p>
-        <div className='container'>
-          <span className='character__card--episode'>{`Number of episodes: ${findCharacter.episode}`}</span>
-          <span>{`Status: ${findCharacter.status}`}</span>
+        <article className='character__detail--container'>
+          <img
+            className='character__detail--image'
+            src={findCharacter.image}
+            alt={`Foto de ${findCharacter.name}`}
+            title={`Foto de ${findCharacter.name}`}
+          />
+          <div className='character__detail--text'>
+            <h3 className='character__detail--name'>{findCharacter.name}</h3>
+            <p className='character__detail--species'>Species: {findCharacter.species}</p>
+            <p className='character__detail--origin'>Origin: {findCharacter.origin}</p>
+            <div className='container'>
+              <span className='character__detail--episode'>{`Number of episodes: ${findCharacter.episode}`}</span>
+              <span className='character__detail--status'>{`Status: ${findCharacter.status}`}</span>
+            </div>
+          </div>
+        </article>
+        <div className='go__back'>
+          <Link to='/' className='go__back--link'>
+            Volver
+          </Link>
         </div>
       </section>
-      <div className="go__back">
-        <Link to='/'>Volver</Link>
-      </div>
     </>
   );
 };

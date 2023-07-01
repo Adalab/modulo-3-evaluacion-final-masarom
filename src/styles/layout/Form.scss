@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   padding: 15px 0;
+  margin: auto;
+  max-width: 400px;
   &--name {
     font-family: $primary-font;
     font-size: 1.6rem;

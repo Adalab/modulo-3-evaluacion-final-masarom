@@ -10,6 +10,7 @@ import Header from './Header';
 import CharactersList from './CharactersList';
 import FilterByName from './Filters';
 import CharacterDetail from './CharacterDetail';
+import Footer from './Footer';
 
 function App() {
   // State variables
@@ -48,12 +49,13 @@ function App() {
 
   return (
     <div className='root'>
+      <Header />
       <Routes>
         <Route
           path='/'
           element={
             <>
-              <Header />
+              
               <main className='main'>
                 <FilterByName filterName={filterName} handleFilter={handleFilter} />
                 <section className='characters'>
@@ -65,6 +67,7 @@ function App() {
         />
         <Route path='/character/:characterId' element={<CharacterDetail findCharacter={findCharacter} />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
