@@ -1,3 +1,5 @@
+import '../styles/layout/Form.scss';
+
 const FilterByName = ({ filterName, handleFilter }) => {
   //handle input Name filter
   const handleFilterName = (ev) => {
@@ -12,7 +14,7 @@ const FilterByName = ({ filterName, handleFilter }) => {
 
   return (
     <form className='form__filter' onSubmit={handleOnSubmit}>
-      <input type='text' name='name__filter' placeholder='Search by name' value={filterName} onInput={handleFilterName} />
+      <input type='text' className='form__filter--name' name='name__filter' placeholder='Search by name' value={filterName} onInput={handleFilterName} />
     </form>
   );
 };

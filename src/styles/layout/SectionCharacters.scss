@@ -19,7 +19,6 @@
     @media all and (min-width: 1440px) {
       max-width: 1100px;
     }
-
   }
   &__card {
     align-self: center;
@@ -55,10 +54,21 @@
       font-size: 1.6rem;
       display: inline-block;
       //width: 170px;
-      padding-left:10px;
+      padding-left: 10px;
     }
-    &--status{
+    &--status {
       margin-left: 10px;
+    }
+  }
+  &__error {
+    grid-column: span 4;
+    width: inherit;
+    &-msg {
+      font-size: 1.8rem;
+      width: inherit;
+      margin: auto;
+      color: $white;
+      text-align: center;
     }
   }
 }
