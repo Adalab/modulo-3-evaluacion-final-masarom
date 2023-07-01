@@ -1,21 +1,26 @@
-const CharacterDetail = ({}) => {
+import { Link } from "react-router-dom";
+
+const CharacterDetail = ({ findCharacter }) => {
   return (
     <>
       <section className='character__detail'>
         <img
           className='character__card--image'
-          src={'eachCharacter.image'}
-          alt={`Foto de ${'eachCharacter.name'}`}
-          title={`Foto de ${'eachCharacter.name'}`}
+          src={findCharacter.image}
+          alt={`Foto de ${findCharacter.name}`}
+          title={`Foto de ${findCharacter.name}`}
         />
-        <h3 className='character__card--name'>{'eachCharacter.name'}</h3>
-        <p className='character__card--species'>{'eachCharacter.species'}</p>
-        <p className='character__card--origin'>{'eachCharacter.origin'}</p>
+        <h3 className='character__card--name'>{findCharacter.name}</h3>
+        <p className='character__card--species'>{findCharacter.species}</p>
+        <p className='character__card--origin'>{findCharacter.origin}</p>
         <div className='container'>
-          <span className='character__card--episode'>{`Number of episodes: ${'eachCharacter.episode'}`}</span>
-          <span>{`Status: ${'eachCharacter.status'}`}</span>
+          <span className='character__card--episode'>{`Number of episodes: ${findCharacter.episode}`}</span>
+          <span>{`Status: ${findCharacter.status}`}</span>
         </div>
       </section>
+      <div className="go__back">
+        <Link to='/'>Volver</Link>
+      </div>
     </>
   );
 };

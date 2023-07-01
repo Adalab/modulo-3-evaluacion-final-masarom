@@ -4,7 +4,11 @@ import '../styles/layout/SectionCharacters.scss';
 const CharacterCard = ({ eachCharacter }) => {
   return (
     <>
-      <Link to={'character/' + eachCharacter.id}>
+      <Link
+        to={'character/' + eachCharacter.id}
+        className='active'
+        /* className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active character__card--link' : '')} */
+      >
         <img
           className='character__card--image'
           src={eachCharacter.image}

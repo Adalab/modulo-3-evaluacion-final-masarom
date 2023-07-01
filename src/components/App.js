@@ -1,6 +1,6 @@
 // Hooks
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, matchPath, useLocation } from 'react-router-dom';
 // Styles
 import '../styles/App.scss';
 // services and Components
@@ -37,6 +37,14 @@ function App() {
     eachCharacter.name.toLowerCase().includes(filterName.toLowerCase())
   );
 
+  
+
+  // find dinamic routes of every character
+  const { pathname } = useLocation();
+  const routeData = matchPath('/character/:characterId', pathname);
+  const characterId = routeData?.params.characterId;
+  const findCharacter = characters.find((eachCharacter) => eachCharacter.id === parseInt(characterId));
+
   return (
     <>
       <Routes>
@@ -48,13 +56,13 @@ function App() {
               <main className='main'>
                 <FilterByName filterName={filterName} handleFilter={handleFilter} />
                 <section className='characters'>
-                  <CharactersList characters={filteredCharacters} />
+                  <CharactersList characters={filteredCharacters}/>
                 </section>
               </main>
             </>
           }
         />
-        <Route path='/character/:characterId' element={<CharacterDetail characters={filteredCharacters} />} />
+        <Route path='/character/:characterId' element={<CharacterDetail findCharacter={findCharacter} />} />
       </Routes>
     </>
   );
