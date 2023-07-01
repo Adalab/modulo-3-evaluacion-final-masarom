@@ -47,7 +47,7 @@ function App() {
   const findCharacter = characters.find((eachCharacter) => eachCharacter.id === parseInt(characterId));
 
   return (
-    <>
+    <div className='root'>
       <Routes>
         <Route
           path='/'
@@ -65,7 +65,7 @@ function App() {
         />
         <Route path='/character/:characterId' element={<CharacterDetail findCharacter={findCharacter} />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

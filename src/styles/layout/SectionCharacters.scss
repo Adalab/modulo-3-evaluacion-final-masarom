@@ -1,15 +1,64 @@
+@import '../core/Var.scss';
 .character {
   &__list {
+    list-style-type: none;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @media all and (min-width: 425px) {
+      display: grid;
+      justify-items: center;
+      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media all and (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 900px;
+    }
+    @media all and (min-width: 1440px) {
+      max-width: 1100px;
+    }
+
   }
   &__card {
+    align-self: center;
     font-size: 1.4rem;
-
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: black;
+    max-width: 280px;
     &--link {
       text-decoration: none;
-      color: black;
+      color: white;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      &:hover {
+        color: $nuclear-green;
+      }
+      text-align: center;
     }
     &--image {
-      width: 200px;
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      border-radius: 15px;
+    }
+    &--name {
+      font-size: 1.8rem;
+    }
+    &--species {
+      font-size: 1.6rem;
+      display: inline-block;
+      //width: 170px;
+      padding-left:10px;
+    }
+    &--status{
+      margin-left: 10px;
     }
   }
 }

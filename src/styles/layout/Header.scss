@@ -1,8 +1,16 @@
 .header {
     height: 25vh;
-    &__img {
-        height: inherit;
-        display: block;
+    width: 100%;
+    background-image: url(../../images/hero-2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+
+    /* &__img {
+        align-items: center;
+        max-width: 100%;
+        height: auto;
         margin: auto;
-    }
+    } */
 }

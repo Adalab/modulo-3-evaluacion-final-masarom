@@ -12,7 +12,10 @@ const CharacterCard = ({ eachCharacter }) => {
           title={`Foto de ${eachCharacter.name}`}
         />
         <h3 className='character__card--name'>{eachCharacter.name}</h3>
-        <p className='character__card--species'>{eachCharacter.species}</p>
+        <div className='character__card--container'>
+          <span className='character__card--species'>{eachCharacter.species}</span>
+          <span className="character__card--status"><i className={eachCharacter.status === 'Dead' ? 'fa-solid fa-skull-crossbones' : null}></i></span>
+        </div>
       </Link>
     </>
   );
