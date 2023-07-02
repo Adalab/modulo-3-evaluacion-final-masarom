@@ -16,13 +16,16 @@ function App() {
   // State variables
   const [characters, setCharacters] = useState(ls.get('characters', []));
   const [filterName, setFilterName] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   // useEffect: use localStorage first to prevent too many petitions to API
   useEffect(() => {
     if (ls.get('characters', null) === null) {
+      setIsLoading(true)
       CallToApi().then((cleanData) => {
         setCharacters(cleanData);
         ls.set('characters', cleanData);
+        setIsLoading(false);
       });
     }
   }, []);
@@ -55,11 +58,10 @@ function App() {
           path='/'
           element={
             <>
-              
               <main className='main'>
                 <FilterByName filterName={filterName} handleFilter={handleFilter} />
                 <section className='characters'>
-                  <CharactersList characters={filteredCharacters}/>
+                  <CharactersList characters={filteredCharacters} isLoading={isLoading}/>
                 </section>
               </main>
             </>

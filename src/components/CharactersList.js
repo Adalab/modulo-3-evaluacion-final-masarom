@@ -1,7 +1,12 @@
 import '../styles/layout/SectionCharacters.scss';
 import CharacterCard from './CharacterCard';
 
-const CharactersList = ({ characters }) => {
+const CharactersList = ({ characters, isLoading }) => {
+  if (isLoading) {
+    return (
+      <p className='character__error-msg'>Loading...</p>
+    )
+  } else {
   const charactersLi = characters.map((eachCharacter) => (
     <li className='character__card' key={eachCharacter.id}>
       <CharacterCard eachCharacter={eachCharacter} />
@@ -16,7 +21,7 @@ const CharactersList = ({ characters }) => {
       </div>
     );
   };
-  return <ul className='character__list'>{characters.length === 0 ? filterErrorMsg() : charactersLi}</ul>;
+  return <ul className='character__list'>{characters.length === 0 ? filterErrorMsg() : charactersLi}</ul>;}
 };
 
 export default CharactersList;
