@@ -25,7 +25,7 @@ const CharacterDetail = ({ findCharacter }) => {
           </article>
           <div className='go__back'>
             <Link to='/' className='go__back--link'>
-              Go back
+              Back
             </Link>
           </div>
         </section>
@@ -39,7 +39,7 @@ const CharacterDetail = ({ findCharacter }) => {
         </p>
         <div className='go__back'>
           <Link to='/' className='go__back--link'>
-            Go back
+            Back
           </Link>
         </div>
       </div>
