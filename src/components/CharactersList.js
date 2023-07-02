@@ -7,7 +7,13 @@ const CharactersList = ({ characters, isLoading }) => {
       <p className='character__error-msg'>Loading...</p>
     )
   } else {
-  const charactersLi = characters.map((eachCharacter) => (
+    //sort alphabetically before map
+  const charactersLi = characters.sort(function (a, b) {
+    if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+    if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+    return 0;
+  })
+  .map((eachCharacter) => (
     <li className='character__card' key={eachCharacter.id}>
       <CharacterCard eachCharacter={eachCharacter} />
     </li>
