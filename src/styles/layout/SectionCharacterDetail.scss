@@ -68,6 +68,16 @@
   &--status {
     display: block;
   }
+  &--error {
+    height: 75vh;
+    &-msg{
+      font-size: 1.8rem;
+      width: inherit;
+      margin: 45px 25px;
+      color: $white;
+      text-align: center;
+    }
+  }
 }
 
 .go__back {
