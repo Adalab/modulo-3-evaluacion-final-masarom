@@ -15,13 +15,16 @@ import Footer from './Footer';
 function App() {
   // State variables
   const [characters, setCharacters] = useState(ls.get('characters', []));
-  const [filterName, setFilterName] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  /* const [filterName, setFilterName] = useState(''); */
+  const [filters, setFilters] = useState(
+    { name: '', origin: '', species: '', status: '' });
 
+  const [isLoading, setIsLoading] = useState(false);
+  console.log(characters);
   // useEffect: use localStorage first to prevent too many petitions to API
   useEffect(() => {
     if (ls.get('characters', null) === null) {
-      setIsLoading(true)
+      setIsLoading(true);
       CallToApi().then((cleanData) => {
         setCharacters(cleanData);
         ls.set('characters', cleanData);
@@ -31,18 +34,21 @@ function App() {
   }, []);
 
   //functions
-  const handleFilter = (value) => {
-    setFilterName(value);
+  const handleFilter = (name, value) => {
+    //setFilterName(value);
+    const clonedFilters = {...filters, [name]: value}
+    setFilters(clonedFilters);
   };
 
   // function to filter name
 
   const filteredCharacters = characters.filter((eachCharacter) =>
-    eachCharacter.name.toLowerCase().includes(filterName.toLowerCase())
-  );
+    eachCharacter.name.toLowerCase().includes(filters.name.toLowerCase())
+  )
+  .filter((eachCharacter) => eachCharacter.species.toLowerCase().includes(filters.species.toLowerCase()))
+  .filter((eachCharacter) => eachCharacter.origin.toLowerCase().includes(filters.origin.toLowerCase()));
 
   // render error msg for filter by name
-  
 
   // find dinamic routes of every character
   const { pathname } = useLocation();
@@ -59,9 +65,9 @@ function App() {
           element={
             <>
               <main className='main'>
-                <FilterByName filterName={filterName} handleFilter={handleFilter} />
+                <FilterByName /* filterName={filterName} */ handleFilter={handleFilter} filters={filters} />
                 <section className='characters'>
-                  <CharactersList characters={filteredCharacters} isLoading={isLoading}/>
+                  <CharactersList characters={filteredCharacters} isLoading={isLoading} />
                 </section>
               </main>
             </>
@@ -69,7 +75,7 @@ function App() {
         />
         <Route path='/character/:characterId' element={<CharacterDetail findCharacter={findCharacter} />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

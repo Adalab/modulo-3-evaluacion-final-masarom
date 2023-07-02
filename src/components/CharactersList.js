@@ -2,6 +2,7 @@ import '../styles/layout/SectionCharacters.scss';
 import CharacterCard from './CharacterCard';
 
 const CharactersList = ({ characters, isLoading }) => {
+  // add loading message before fetch
   if (isLoading) {
     return (
       <p className='character__error-msg'>Loading...</p>

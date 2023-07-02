@@ -1,10 +1,10 @@
 import '../styles/layout/Form.scss';
 
-const FilterByName = ({ filterName, handleFilter }) => {
+const FilterByName = ({ filterName, handleFilter, filters }) => {
   //handle input Name filter
-  const handleFilterName = (ev) => {
+  const handleFilters = (ev) => {
     ev.preventDefault();
-    handleFilter(ev.target.value);
+    handleFilter(ev.target.name, ev.target.value);
   };
 
   // prevent send form with Enter
@@ -14,7 +14,23 @@ const FilterByName = ({ filterName, handleFilter }) => {
 
   return (
     <form className='form__filter' onSubmit={handleOnSubmit}>
-      <input type='text' className='form__filter--name' name='name__filter' placeholder='Search by name' value={filterName} onInput={handleFilterName} />
+      <input
+        type='text'
+        className='form__filter--name'
+        name='name'
+        placeholder='Search by name'
+        value={filters.name}
+        onInput={handleFilters}
+      />
+      <input
+        type='text'
+        name='species'
+        className='form__filter--species'
+        placeholder='Search by species'
+        value={filters.species}
+        onInput={handleFilters}
+      />
+      <input type='text' name='origin' className='form__filter--origin' placeholder='Search by origin' value={filters.origin} onInput={handleFilters} />
     </form>
   );
 };
