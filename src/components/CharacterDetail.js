@@ -1,7 +1,10 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../styles/layout/SectionCharacterDetail.scss';
+import defaultImg from '../images/default-object.jpg';
 
 const CharacterDetail = ({ findCharacter }) => {
+  console.log(findCharacter);
   if (findCharacter) {
     return (
       <>
@@ -46,5 +49,25 @@ const CharacterDetail = ({ findCharacter }) => {
     );
   }
 };
+
+//defaultProps
+
+// defaultProps
+CharacterDetail.defaultProps = {
+  eachCharacter: {
+    episode: 0,
+    id: 0,
+    image: defaultImg,
+    name: 'Character Name',
+    origin: 'Planet of origin',
+    species: 'Characters species',
+    status: 'Dead',
+  },
+};
+
+//PropTypes
+CharacterDetail.propTypes = {
+  findCharacter: PropTypes.object
+}
 
 export default CharacterDetail;

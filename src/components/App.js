@@ -20,7 +20,6 @@ function App() {
     { name: '', origin: '', species: '', status: '' });
 
   const [isLoading, setIsLoading] = useState(false);
-  console.log(characters);
   // useEffect: use localStorage first to prevent too many petitions to API
   useEffect(() => {
     if (ls.get('characters', null) === null) {
@@ -40,7 +39,7 @@ function App() {
     setFilters(clonedFilters);
   };
 
-  // function to filter name
+  // function to filter name, species and origin
 
   const filteredCharacters = characters.filter((eachCharacter) =>
     eachCharacter.name.toLowerCase().includes(filters.name.toLowerCase())
@@ -58,12 +57,12 @@ function App() {
 
   return (
     <div className='root'>
-      <Header />
       <Routes>
         <Route
           path='/'
           element={
             <>
+              <Header />
               <main className='main'>
                 <FilterByName /* filterName={filterName} */ handleFilter={handleFilter} filters={filters} />
                 <section className='characters'>

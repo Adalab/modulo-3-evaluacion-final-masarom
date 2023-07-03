@@ -4,11 +4,15 @@
   height: 5vh;
   background-color: $black;
   color: $nuclear-green;
+  position: fixed;
+  bottom: 0;
   &__text {
+    height: inherit;
     &--small {
       display: block;
-      padding: 7px 0;
-      margin: auto;
+      height: inherit;
+      padding: 7px 0 0;
+      margin: 0 auto;
       text-align: center;
       font-size: 1.2rem;
     }
