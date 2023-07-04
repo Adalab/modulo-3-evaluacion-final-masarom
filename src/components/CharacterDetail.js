@@ -4,7 +4,6 @@ import '../styles/layout/SectionCharacterDetail.scss';
 import defaultImg from '../images/default-object.jpg';
 
 const CharacterDetail = ({ findCharacter }) => {
-  console.log(findCharacter);
   if (findCharacter) {
     return (
       <>
@@ -49,8 +48,6 @@ const CharacterDetail = ({ findCharacter }) => {
     );
   }
 };
-
-//defaultProps
 
 // defaultProps
 CharacterDetail.defaultProps = {

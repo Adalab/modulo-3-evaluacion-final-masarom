@@ -1,6 +1,6 @@
 import '../styles/layout/Form.scss';
 
-const FilterByName = ({ /* filterName */ handleFilter, filters, uniqueSpecies, uniqueOrigin }) => {
+const FilterByName = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => {
   //handle inputs filter
   const handleFilters = (ev) => {
     ev.preventDefault();
@@ -52,14 +52,6 @@ const FilterByName = ({ /* filterName */ handleFilter, filters, uniqueSpecies, u
         </option>
         {renderSpeciesSelect()}
       </select>
-      {/* <input
-        type='text'
-        name='species'
-        className='form__filter--species'
-        placeholder='Search by species'
-        value={filters.species}
-        onInput={handleFilters}
-      /> */}
       <select
         className='form__filter--species'
         name='origin'
@@ -72,14 +64,6 @@ const FilterByName = ({ /* filterName */ handleFilter, filters, uniqueSpecies, u
         </option>
         {renderOriginSelect()}
       </select>
-      {/* <input
-        type='text'
-        name='origin'
-        className='form__filter--origin'
-        placeholder='Search by origin'
-        value={filters.origin}
-        onInput={handleFilters}
-      /> */}
     </form>
   );
 };
