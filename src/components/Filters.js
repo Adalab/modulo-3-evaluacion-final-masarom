@@ -1,11 +1,19 @@
 import '../styles/layout/Form.scss';
 
-const FilterByName = ({ filterName, handleFilter, filters }) => {
-  //handle input Name filter
+const FilterByName = ({ filterName, handleFilter, filters, uniqueSpecies }) => {
+  //handle inputs filter
   const handleFilters = (ev) => {
     ev.preventDefault();
     handleFilter(ev.target.name, ev.target.value);
   };
+
+  //render species select options
+
+  const renderSpeciesSelect = () => {
+    return uniqueSpecies.map((eachSpecies, i) =>(
+      <option key={i} value={eachSpecies}>{eachSpecies}</option>
+    ))
+  }
 
   // prevent send form with Enter
   const handleOnSubmit = (ev) => {
@@ -22,15 +30,28 @@ const FilterByName = ({ filterName, handleFilter, filters }) => {
         value={filters.name}
         onInput={handleFilters}
       />
-      <input
+      <select className='form__filter--species' name='species' id='' value={filters.species} onChange={handleFilters}>
+        <option selected hidden disabled value=''>
+          Search by species
+        </option>
+        {renderSpeciesSelect()}
+      </select>
+      {/* <input
         type='text'
         name='species'
         className='form__filter--species'
         placeholder='Search by species'
         value={filters.species}
         onInput={handleFilters}
+      /> */}
+      <input
+        type='text'
+        name='origin'
+        className='form__filter--origin'
+        placeholder='Search by origin'
+        value={filters.origin}
+        onInput={handleFilters}
       />
-      <input type='text' name='origin' className='form__filter--origin' placeholder='Search by origin' value={filters.origin} onInput={handleFilters} />
     </form>
   );
 };

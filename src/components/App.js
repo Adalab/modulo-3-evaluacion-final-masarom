@@ -20,6 +20,7 @@ function App() {
     { name: '', origin: '', species: '', status: '' });
 
   const [isLoading, setIsLoading] = useState(false);
+  
   // useEffect: use localStorage first to prevent too many petitions to API
   useEffect(() => {
     if (ls.get('characters', null) === null) {
@@ -47,6 +48,14 @@ function App() {
   .filter((eachCharacter) => eachCharacter.species.toLowerCase().includes(filters.species.toLowerCase()))
   .filter((eachCharacter) => eachCharacter.origin.toLowerCase().includes(filters.origin.toLowerCase()));
 
+  // Create array with species to use in select form
+  const species = characters.map((eachCharacter) => eachCharacter.species);
+  console.log(species);
+  // Clean array from duplicates
+  const uniqueSpecies = [...new Set(species)];
+  console.log(uniqueSpecies);
+
+
   // render error msg for filter by name
 
   // find dinamic routes of every character
@@ -64,7 +73,7 @@ function App() {
             <>
               <Header />
               <main className='main'>
-                <FilterByName /* filterName={filterName} */ handleFilter={handleFilter} filters={filters} />
+                <FilterByName /* filterName={filterName} */ handleFilter={handleFilter} filters={filters} uniqueSpecies={uniqueSpecies}/>
                 <section className='characters'>
                   <CharactersList characters={filteredCharacters} isLoading={isLoading} />
                 </section>
