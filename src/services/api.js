@@ -1,9 +1,7 @@
-const CallToApi = () => {
-    const url = 'https://rickandmortyapi.com/api/character';
-  return (
-    fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
+const CallToApi = (page) => {
+  return fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+    .then((response) => response.json())
+    .then((data) => {
       // map the fetch response to get only the data needed
       const cleanData = data.results.map((eachData) => {
         return {
@@ -13,12 +11,12 @@ const CallToApi = () => {
           species: eachData.species,
           origin: eachData.origin.name,
           episode: eachData.episode.length,
-          status: eachData.status
-        }
+          status: eachData.status,
+        };
+      });
+      return cleanData;
     })
-    return cleanData;
-      })
-  );
-}
+    .catch((error) => alert('ha habido un error: ' + error));
+};
 
 export default CallToApi;

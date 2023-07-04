@@ -14,26 +14,39 @@ import Footer from './Footer';
 
 function App() {
   // State variables
-  const [characters, setCharacters] = useState(ls.get('characters', []));
+  /* const [characters, setCharacters] = useState(ls.get('characters', [])); */
+  const [characters, setCharacters] = useState([]);
   const [filters, setFilters] = useState({ name: '', origin: '', species: '', status: '' });
-
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // useEffect: use localStorage first to prevent too many petitions to API
+  // UPDATE: leave it COMMENTED as I currently can't change the LS when changing API page
+
   useEffect(() => {
     if (ls.get('characters', null) === null) {
-      setIsLoading(true);
-      CallToApi().then((cleanData) => {
-        setCharacters(cleanData);
-        ls.set('characters', cleanData);
-        setIsLoading(false);
-      });
+    setIsLoading(true);
+    CallToApi(currentPage).then((cleanData) => {
+      setCharacters(cleanData);
+      /* ls.set('characters', cleanData); */
+      setIsLoading(false);
+    });
     }
-  }, []);
+  }, [currentPage]);
+
+  // pagination
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  }
 
   //functions
   const handleFilter = (name, value) => {
-    //setFilterName(value);
     const clonedFilters = { ...filters, [name]: value };
     setFilters(clonedFilters);
   };
@@ -76,7 +89,7 @@ function App() {
                   uniqueOrigin={uniqueOrigin}
                 />
                 <section className='characters'>
-                  <CharactersList characters={filteredCharacters} isLoading={isLoading} />
+                  <CharactersList characters={filteredCharacters} isLoading={isLoading} currentPage={currentPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} />
                 </section>
               </main>
             </>

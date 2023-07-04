@@ -2,8 +2,9 @@ import PropTypes from 'prop-types';
 import '../styles/layout/SectionCharacters.scss';
 import CharacterCard from './CharacterCard';
 import defaultImg from '../images/default-object.jpg';
+import Pagination from './Pagination';
 
-const CharactersList = ({ characters, isLoading }) => {
+const CharactersList = ({ characters, isLoading, currentPage, goToPreviousPage, goToNextPage }) => {
   // add loading message before fetch
   if (isLoading) {
     return <p className='character__error-msg'>Loading...</p>;
@@ -29,7 +30,12 @@ const CharactersList = ({ characters, isLoading }) => {
         </div>
       );
     };
-    return <ul className='character__list'>{characters.length === 0 ? filterErrorMsg() : charactersLi}</ul>;
+    return (
+      <ul className='character__list'>
+        {<Pagination currentPage={currentPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} />}
+        {characters.length === 0 ? filterErrorMsg() : charactersLi}
+      </ul>
+    );
   }
 };
 

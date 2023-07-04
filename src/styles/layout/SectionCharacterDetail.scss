@@ -4,7 +4,6 @@
   padding-top: 75px;
   &--container {
     margin: auto;
-    
     background-color: $white;
     border-radius: 45px;
     width: 75vw;
@@ -117,8 +116,8 @@
       text-decoration: none;
       font-family: $primary-font;
       font-weight: bold;
-      color: white;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      color: $white;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px $black;
       text-align: center;
       &:hover {
         color: $nuclear-green;
