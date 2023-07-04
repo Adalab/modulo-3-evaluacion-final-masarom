@@ -50,11 +50,15 @@ function App() {
 
   // Create array with species to use in select form
   const species = characters.map((eachCharacter) => eachCharacter.species);
-  console.log(species);
+
   // Clean array from duplicates
   const uniqueSpecies = [...new Set(species)];
-  console.log(uniqueSpecies);
 
+  // Create array with origin planets to use in select form
+  const origin = characters.map((eachCharacter) => eachCharacter.origin);
+  console.log(origin);
+  const uniqueOrigin = [...new Set(origin)];
+  console.log(uniqueOrigin);
 
   // render error msg for filter by name
 
@@ -73,7 +77,12 @@ function App() {
             <>
               <Header />
               <main className='main'>
-                <FilterByName /* filterName={filterName} */ handleFilter={handleFilter} filters={filters} uniqueSpecies={uniqueSpecies}/>
+                <FilterByName
+                  /* filterName={filterName} */ handleFilter={handleFilter}
+                  filters={filters}
+                  uniqueSpecies={uniqueSpecies}
+                  uniqueOrigin={uniqueOrigin}
+                />
                 <section className='characters'>
                   <CharactersList characters={filteredCharacters} isLoading={isLoading} />
                 </section>
