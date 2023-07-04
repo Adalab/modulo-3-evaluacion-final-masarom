@@ -31,10 +31,10 @@ const CharactersList = ({ characters, isLoading, currentPage, goToPreviousPage, 
       );
     };
     return (
-      <ul className='character__list'>
-        {<Pagination currentPage={currentPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} />}
-        {characters.length === 0 ? filterErrorMsg() : charactersLi}
-      </ul>
+      <>
+        <Pagination currentPage={currentPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} />
+        <ul className='character__list'>{characters.length === 0 ? filterErrorMsg() : charactersLi}</ul>
+      </>
     );
   }
 };

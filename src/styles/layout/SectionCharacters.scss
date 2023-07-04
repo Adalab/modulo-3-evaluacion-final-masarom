@@ -1,36 +1,6 @@
 @import '../core/Var';
 .character {
   &__list {
-    & .pagination {
-      grid-column: span 4;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 5px;
-      margin: auto;
-      margin-top: 15px;
-      margin-bottom: 35px;
-      &__btn {
-        width: 45px;
-        display: block;
-        padding: 3px 5px;
-        background-color: $nuclear-green;
-        font-family: $primary-font;
-        font-weight: bold;
-        border-radius: 5px;
-        &:hover {
-          background-color: $nuclear-green;
-          color: $white;
-          text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px $black;
-        }
-      }
-      &__text {
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: $white;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px $black;
-      }
-    }
     list-style-type: none;
     margin: 55px auto 0;
     display: flex;

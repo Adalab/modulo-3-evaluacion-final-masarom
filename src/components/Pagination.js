@@ -1,3 +1,5 @@
+import '../styles/layout/Pagination.scss';
+
 const Pagination = ({ currentPage, goToPreviousPage, goToNextPage }) => {
   const handlePrevPg = (ev) => {
     ev.preventDefault();
