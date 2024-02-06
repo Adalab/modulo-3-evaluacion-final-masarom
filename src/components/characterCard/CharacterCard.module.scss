@@ -22,10 +22,11 @@
       text-align: center;
     }
     &Image {
+      pointer-events: none;
       width: 100%;
       max-width: 250px;
       height: auto;
-      border-radius: 15px;
+      border-radius: 10px;
     }
     &Name {
       font-size: 1.8rem;

@@ -1,0 +1,21 @@
+.buttonUp {
+    position: fixed;
+    bottom: 5px;
+    right: 2px;
+    background-color: $nuclear-green;
+    padding: 12px;
+    border-radius: 50%;
+    border: solid 2px $nuclear-green;
+    font-size: 1.6rem;
+    z-index: 999;
+    &:hover {
+      background-color: black;
+    }
+    @media all and (min-width: 1100px) {
+        right: 90px;
+        bottom: 10px;
+    }
+    &Link {
+        scroll-behavior: smooth;
+    }
+  }

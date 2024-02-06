@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './CharacterDetail.module.scss';
-import defaultImg from '../../assets/images/default-object.jpg';
+import defaultImg from '../../assets/images/default-object.avif';
 
 const CharacterDetail = ({ findCharacter }) => {
   if (findCharacter) {
@@ -39,8 +39,8 @@ const CharacterDetail = ({ findCharacter }) => {
         <p className={styles.characterDetailErrorMsg}>
           Sorry, the character you&apos;re looking for doesn&apos;t seem to exist in our database.
         </p>
-        <div className={styles.go__back}>
-          <Link to='/' className={styles.go__backLink}>
+        <div className={styles.goBack}>
+          <Link to='/' className={styles.goBackLink}>
             Back
           </Link>
         </div>

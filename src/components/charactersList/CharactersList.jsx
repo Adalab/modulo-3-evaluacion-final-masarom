@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import  styles from './CharactersList.module.scss';
 import CharacterCard from '../characterCard/CharacterCard';
-import defaultImg from '../../assets/images/default-object.jpg';
-import Pagination from '../pagination/Pagination';
-
+import defaultImg from '../../assets/images/default-object.avif';
 const CharactersList = ({ characters, isLoading }) => {
   // add loading message before fetch
   if (isLoading) {

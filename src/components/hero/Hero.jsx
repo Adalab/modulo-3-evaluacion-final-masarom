@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom';
 import styles from './Hero.module.scss';
 
 const Hero = () => {
   return (
-    <section className={styles.hero}>
-    </section>
+    <Link to='/'>
+      <section className={styles.hero} id='hero'>
+      </section>
+    </Link>
   );
 };
 

@@ -2,6 +2,7 @@
 :root {
   font-family: $primary-font;
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 * {
   box-sizing: border-box;
@@ -20,6 +21,6 @@
   min-height: 100vh;
 }
 .characters {
-  padding: 0 25px 45px;
+  padding: 0 25px 0px;
   margin: 0 auto;
 }

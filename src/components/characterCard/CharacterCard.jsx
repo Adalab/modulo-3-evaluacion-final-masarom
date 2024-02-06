@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './CharacterCard.module.scss';
-import defaultImg from '../../assets/images/default-object.jpg';
+import defaultImg from '../../assets/images/default-object.avif';
 
 const CharacterCard = ({ eachCharacter }) => {
   return (

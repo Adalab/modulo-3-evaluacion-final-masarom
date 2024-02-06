@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import styles from './Filters.module.scss';
 
-const FilterByName = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => {
+const Filters = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => {
   //handle inputs filter
   const handleFilters = (ev) => {
     ev.preventDefault();
@@ -70,4 +71,12 @@ const FilterByName = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => 
   );
 };
 
-export default FilterByName;
+Filters.propTypes = {
+  handleFilter: PropTypes.func,
+  filters: PropTypes.object,
+  uniqueSpecies: PropTypes.array,
+  uniqueOrigin: PropTypes.array
+}
+
+
+export default Filters;

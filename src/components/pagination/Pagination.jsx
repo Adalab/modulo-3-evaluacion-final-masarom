@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styles from "./Pagination.module.scss";
 
 const Pagination = ({ currentPage, lastPage, goToPreviousPage, goToNextPage }) => {
@@ -18,7 +19,7 @@ const Pagination = ({ currentPage, lastPage, goToPreviousPage, goToNextPage }) =
         name='prev'
         onClick={handlePrevPg}
       >
-        Prev
+        Previous
       </button>
       <span className={styles.paginationText}>Page {currentPage} of {lastPage}</span>
       <button
@@ -31,5 +32,12 @@ const Pagination = ({ currentPage, lastPage, goToPreviousPage, goToNextPage }) =
     </form>
   );
 };
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  lastPage: PropTypes.number.isRequired,
+  goToPreviousPage: PropTypes.func.isRequired,
+  goToNextPage: PropTypes.func.isRequired
+}
 
 export default Pagination;

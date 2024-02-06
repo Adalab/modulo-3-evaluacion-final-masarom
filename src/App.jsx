@@ -5,13 +5,14 @@ import { Route, Routes, matchPath, useLocation } from "react-router-dom";
 import "./App.scss";
 // services and Components
 import CallToApi from "./services/api";
-import ls from "./services/localStorage";
+// import ls from "./services/localStorage";
 import Hero from "./components/hero/Hero";
 import CharactersList from "./components/charactersList/CharactersList";
-import FilterByName from "./components/filters/Filters";
+import Filters from "./components/filters/Filters";
 import Pagination from "./components/pagination/Pagination";
 import CharacterDetail from "./components/characterDetail/CharacterDetail";
 import Footer from "./components/footer/Footer";
+import ButtonUp from "./buttons/buttonUp";
 
 function App() {
   // State variables
@@ -110,7 +111,7 @@ function App() {
             <>
               <main className='main'>
                 <Hero />
-                <FilterByName
+                <Filters
                   handleFilter={handleFilter}
                   filters={filters}
                   uniqueSpecies={uniqueSpecies}
@@ -127,6 +128,7 @@ function App() {
                   />
                 </section>
               </main>
+              <ButtonUp />
             </>
           }
         />
@@ -135,6 +137,7 @@ function App() {
           element={<CharacterDetail findCharacter={findCharacter} />}
         />
       </Routes>
+      <Pagination currentPage={currentPage} lastPage={lastPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} /> 
       <Footer />
     </div>
   );
