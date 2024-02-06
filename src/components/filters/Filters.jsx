@@ -50,7 +50,7 @@ const FilterByName = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => 
         <option hidden disabled value='default'>
           Search by species
         </option>
-        <option value="">All</option>
+        <option value="">All species</option>
         {renderSpeciesSelect()}
       </select>
       <select
@@ -63,7 +63,7 @@ const FilterByName = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => 
         <option hidden disabled value='default'>
           Search by origin
         </option>
-        <option value="">All</option>
+        <option value="">All origins</option>
         {renderOriginSelect()}
       </select>
     </form>
