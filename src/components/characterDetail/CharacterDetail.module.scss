@@ -1,9 +1,7 @@
-@import '../../App.scss';
-
-.character__detail {
+.characterDetail {
   min-height: calc(100vh - 5vh);
   padding-top: 75px;
-  &--container {
+  &Container {
     margin: auto;
     background-color: $white;
     border-radius: 45px;
@@ -23,7 +21,7 @@
       text-align: left;
     }
   }
-  &--image {
+  &Image {
     padding: 15px;
     width: 70%;
     max-width: 250px;
@@ -33,11 +31,11 @@
       width: 50%;
     }
   }
-  &--text {
+  &Text {
     font-size: 1.6rem;
     padding: 0 5px 15px;
   }
-  &--name {
+  &Name {
     font-size: 1.6rem;
     padding-bottom: 15px;
     @media all and (min-width: 425px) {
@@ -50,10 +48,10 @@
       padding-bottom: 25px;
     }
   }
-  &--species,
-  &--episode,
-  &--origin,
-  &--status {
+  &Species,
+  &Episode,
+  &Origin,
+  &Status {
     padding-bottom: 10px;
     @media all and (min-width: 425px) {
       padding-bottom: 10px;
@@ -63,15 +61,15 @@
       padding-bottom: 15px;
     }
   }
-  &--episode {
+  &Episode {
     display: block;
   }
-  &--status {
+  &Status {
     display: block;
   }
-  &--error {
+  &Error {
     height: 100vh;
-    background-image: url('../../assets/images/not-found-padding.png');
+    background-image: url("../../assets/images/not-found-padding.png");
     background-color: #1d2124ff;
     background-size: contain;
     background-position: center;
@@ -79,9 +77,8 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    //gap: 10px;
 
-    &-msg {
+    &Msg {
       font-size: 1.2rem;
       @media all and (min-width: 425px) {
         font-size: 1.4rem;
@@ -98,31 +95,31 @@
   }
 }
 
-.go__back {
-    width: 105px;
-    background-color: $nuclear-green;
+.goBack {
+  width: 105px;
+  background-color: $nuclear-green;
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 35px;
+  border-radius: 5px;
+  &:hover {
+    background-color: $black;
+  }
+  &Link {
     display: block;
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 35px;
-    border-radius: 5px;
+    width: 100%;
+    font-size: 2.4rem;
+    padding: 3px 5px;
+    text-decoration: none;
+    font-family: $primary-font;
+    font-weight: bold;
+    color: $white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px $black;
+    text-align: center;
     &:hover {
-      background-color: $black;
-    }
-    &--link {
-      display: block;
-      width: 100%;
-      font-size: 2.4rem;
-      padding: 3px 5px;
-      text-decoration: none;
-      font-family: $primary-font;
-      font-weight: bold;
-      color: $white;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px $black;
-      text-align: center;
-      &:hover {
-        color: $nuclear-green;
-        text-shadow: 0;
-      }
+      color: $nuclear-green;
+      text-shadow: 0;
     }
   }
+}

@@ -1,6 +1,4 @@
-@import '../../App.scss';
-
-.form__filter {
+.formFilter {
   display: flex;
   flex-flow: column wrap;
   @media all and (min-width: 425px) {
@@ -13,9 +11,9 @@
   padding: 15px 0;
   margin: 0 25px;
   max-width: 700px;
-  &--name,
-  &--species,
-  &--origin {
+  &Name,
+  &Species,
+  &Origin {
     font-family: $primary-font;
     font-size: 1.6rem;
     padding: 3px 7px 0;

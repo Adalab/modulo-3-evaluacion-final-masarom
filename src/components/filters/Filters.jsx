@@ -1,4 +1,4 @@
-import './Filters.scss';
+import styles from './Filters.module.scss';
 
 const FilterByName = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => {
   //handle inputs filter
@@ -31,17 +31,17 @@ const FilterByName = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => 
   };
 
   return (
-    <form className='form__filter' onSubmit={handleOnSubmit}>
+    <form className={styles.formFilter} onSubmit={handleOnSubmit}>
       <input
         type='text'
-        className='form__filter--name'
+        className={styles.formFilterName}
         name='name'
         placeholder='Search by name'
         value={filters.name}
         onInput={handleFilters}
       />
       <select
-        className='form__filter--species'
+        className={styles.formFilterSpecies}
         name='species'
         id='species'
         defaultValue='default'
@@ -53,7 +53,7 @@ const FilterByName = ({handleFilter, filters, uniqueSpecies, uniqueOrigin }) => 
         {renderSpeciesSelect()}
       </select>
       <select
-        className='form__filter--species'
+        className={styles.formFilterOrigin}
         name='origin'
         id='origin'
         defaultValue='default'

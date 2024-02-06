@@ -1,25 +1,25 @@
 // reset styles
 :root {
-    font-family: $primary-font;
-    font-size: 62.5%;
+  font-family: $primary-font;
+  font-size: 62.5%;
 }
-
-@font-face {
-  font-family: 'The Get Schwifty';
-  src: url('./assets/fonts/get_schwifty.ttf') format('truetype');
-}
-
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// font import
+@font-face {
+  font-family: "The Get Schwifty";
+  src: url("./assets/fonts/get_schwifty.ttf") format("truetype");
 }
 
 // main
 .main {
-  min-height:100vh;
+  min-height: 100vh;
 }
 .characters {
   padding: 0 25px 45px;
-  margin: 0  auto;
+  margin: 0 auto;
 }

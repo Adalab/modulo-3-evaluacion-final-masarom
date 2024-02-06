@@ -1,4 +1,4 @@
-import './Pagination.scss';
+import styles from "./Pagination.module.scss";
 
 const Pagination = ({ currentPage, goToPreviousPage, goToNextPage }) => {
   const handlePrevPg = (ev) => {
@@ -12,16 +12,24 @@ const Pagination = ({ currentPage, goToPreviousPage, goToNextPage }) => {
   };
 
   return (
-    <form className='pagination'>
-      <button className='pagination__btn' name='prev' onClick={handlePrevPg}>
+    <form className={styles.pagination}>
+      <button
+        className={styles.paginationBtn}
+        name='prev'
+        onClick={handlePrevPg}
+      >
         Prev
       </button>
-      <span className="pagination__text">Page {currentPage} of 42</span>
-      <button className='pagination__btn' name='next' onClick={handleNextPg}>
+      <span className={styles.paginationText}>Page {currentPage} of 42</span>
+      <button
+        className={styles.paginationBtn}
+        name='next'
+        onClick={handleNextPg}
+      >
         Next
       </button>
     </form>
   );
-}; 
+};
 
 export default Pagination;

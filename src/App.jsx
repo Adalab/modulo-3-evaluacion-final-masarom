@@ -6,7 +6,7 @@ import './App.scss';
 // services and Components
 import CallToApi from './services/api';
 import ls from './services/localStorage';
-import Header from './components/header/Header';
+import Hero from './components/hero/Hero';
 import CharactersList from './components/charactersList/CharactersList';
 import FilterByName from './components/filters/Filters';
 import CharacterDetail from './components/characterDetail/CharacterDetail';
@@ -80,8 +80,8 @@ function App() {
           path='/'
           element={
             <>
-              <Header />
               <main className='main'>
+              <Hero />
                 <FilterByName
                   handleFilter={handleFilter}
                   filters={filters}

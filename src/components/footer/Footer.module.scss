@@ -1,5 +1,3 @@
-@import '../../App.scss';
-
 .footer {
   width: 100%;
   height: 5vh;
@@ -7,9 +5,9 @@
   color: $nuclear-green;
   position: fixed;
   bottom: 0;
-  &__text {
+  &Text {
     height: inherit;
-    &--small {
+    &Small {
       display: block;
       height: inherit;
       padding: 7px 0 0;

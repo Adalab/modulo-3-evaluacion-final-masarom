@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './CharactersList.scss';
+import  styles from './CharactersList.module.scss';
 import CharacterCard from '../characterCard/CharacterCard';
 import defaultImg from '../../assets/images/default-object.jpg';
 import Pagination from '../pagination/Pagination';
@@ -7,7 +7,7 @@ import Pagination from '../pagination/Pagination';
 const CharactersList = ({ characters, isLoading, currentPage, goToPreviousPage, goToNextPage }) => {
   // add loading message before fetch
   if (isLoading) {
-    return <p className='character__error-msg'>Loading...</p>;
+    return <p className={styles.characterErrorMsg}>Loading...</p>;
   } else {
     //sort alphabetically before map
     const charactersLi = characters
@@ -17,23 +17,23 @@ const CharactersList = ({ characters, isLoading, currentPage, goToPreviousPage, 
         return 0;
       })
       .map((eachCharacter) => (
-        <li className='character__card' key={eachCharacter.id}>
+        <li className={styles.characterCard} key={eachCharacter.id}>
           <CharacterCard eachCharacter={eachCharacter} />
         </li>
       ));
     //add an error msg in case the filter returns 0
     const filterErrorMsg = () => {
       return (
-        <div className='character__error'>
-          <p className='character__error-msg'>Sorry, we weren&apos;t able to find what you&apos;re looking for :(</p>
-          <p className='character__error-msg'>Try again!</p>
+        <div className={styles.characterError}>
+          <p className={styles.characterErrorMsg}>Sorry, we weren&apos;t able to find what you&apos;re looking for :(</p>
+          <p className={styles.characterErrorMsg}>Try again!</p>
         </div>
       );
     };
     return (
       <>
         <Pagination currentPage={currentPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} />
-        <ul className='character__list'>{characters.length === 0 ? filterErrorMsg() : charactersLi}</ul>
+        <ul className={styles.characterList}>{characters.length === 0 ? filterErrorMsg() : charactersLi}</ul>
       </>
     );
   }

@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './CharacterCard.scss';
+import styles from './CharacterCard.module.scss';
 import defaultImg from '../../assets/images/default-object.jpg';
 
 const CharacterCard = ({ eachCharacter }) => {
   return (
     <>
-      <Link to={'character/' + eachCharacter.id} className='character__card--link'>
+      <Link to={'character/' + eachCharacter.id} className={styles.characterCardLink}>
         <img
-          className='character__card--image'
+          className={styles.characterCardImage}
           src={eachCharacter.image}
           alt={`Foto de ${eachCharacter.name}`}
           title={`Foto de ${eachCharacter.name}`}
         />
-        <h3 className='character__card--name'>{eachCharacter.name}</h3>
-        <div className='character__card--container'>
-          <span className='character__card--species'>{eachCharacter.species}</span>
-          <span className='character__card--status'>
+        <h3 className={styles.characterCardName}>{eachCharacter.name}</h3>
+        <div >
+          <span className={styles.characterCardSpecies}>{eachCharacter.species}</span>
+          <span className={styles.characterCardStatus}>
             <i className={eachCharacter.status === 'Dead' ? 'fa-solid fa-skull-crossbones' : null}></i>
           </span>
         </div>

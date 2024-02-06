@@ -1,32 +1,32 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './CharacterDetail.scss';
+import styles from './CharacterDetail.module.scss';
 import defaultImg from '../../assets/images/default-object.jpg';
 
 const CharacterDetail = ({ findCharacter }) => {
   if (findCharacter) {
     return (
       <>
-        <section className='character__detail'>
-          <article className='character__detail--container'>
+        <section className={styles.characterDetail}>
+          <article className={styles.characterDetailContainer}>
             <img
-              className='character__detail--image'
+              className={styles.characterDetailImage}
               src={findCharacter.image}
               alt={`Foto de ${findCharacter.name}`}
               title={`Foto de ${findCharacter.name}`}
             />
-            <div className='character__detail--text'>
-              <h3 className='character__detail--name'>{findCharacter.name}</h3>
-              <p className='character__detail--species'>Species: {findCharacter.species}</p>
-              <p className='character__detail--origin'>Origin: {findCharacter.origin}</p>
-              <div className='container'>
-                <span className='character__detail--episode'>{`Number of episodes: ${findCharacter.episode}`}</span>
-                <span className='character__detail--status'>{`Status: ${findCharacter.status}`}</span>
+            <div className={styles.characterDetailText}>
+              <h3 className={styles.characterDetailName}>{findCharacter.name}</h3>
+              <p className={styles.characterDetailSpecies}>Species: {findCharacter.species}</p>
+              <p className={styles.characterDetailOrigin}>Origin: {findCharacter.origin}</p>
+              <div>
+                <span className={styles.characterDetailEpisode}>{`Number of episodes: ${findCharacter.episode}`}</span>
+                <span className={styles.characterDetailStatus}>{`Status: ${findCharacter.status}`}</span>
               </div>
             </div>
           </article>
-          <div className='go__back'>
-            <Link to='/' className='go__back--link'>
+          <div className={styles.goBack}>
+            <Link to='/' className={styles.goBackLink}>
               Back
             </Link>
           </div>
@@ -35,12 +35,12 @@ const CharacterDetail = ({ findCharacter }) => {
     );
   } else {
     return (
-      <div className='character__detail--error'>
-        <p className='character__detail--error-msg'>
+      <div className={styles.characterDetailError}>
+        <p className={styles.characterDetailErrorMsg}>
           Sorry, the character you&apos;re looking for doesn&apos;t seem to exist in our database.
         </p>
-        <div className='go__back'>
-          <Link to='/' className='go__back--link'>
+        <div className={styles.go__back}>
+          <Link to='/' className={styles.go__backLink}>
             Back
           </Link>
         </div>
