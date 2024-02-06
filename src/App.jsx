@@ -12,7 +12,7 @@ import Filters from "./components/filters/Filters";
 import Pagination from "./components/pagination/Pagination";
 import CharacterDetail from "./components/characterDetail/CharacterDetail";
 import Footer from "./components/footer/Footer";
-import ButtonUp from "./buttons/buttonUp";
+import ButtonUp from "./buttons/buttonUp/ButtonUp";
 import NotFound from "./components/notFound/NotFound";
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
   };
 
   const goToNextPage = () => {
-    if(currentPage < lastPage) {
+    if (currentPage < lastPage) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -108,7 +108,12 @@ function App() {
                   uniqueSpecies={uniqueSpecies}
                   uniqueOrigin={uniqueOrigin}
                 />
-                <Pagination currentPage={currentPage} lastPage={lastPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} />
+                <Pagination
+                  currentPage={currentPage}
+                  lastPage={lastPage}
+                  goToPreviousPage={goToPreviousPage}
+                  goToNextPage={goToNextPage}
+                />
                 <section className={styles.characters}>
                   <CharactersList
                     characters={filteredCharacters}
@@ -118,7 +123,12 @@ function App() {
                     goToNextPage={goToNextPage}
                   />
                 </section>
-              <Pagination currentPage={currentPage} lastPage={lastPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} /> 
+                <Pagination
+                  currentPage={currentPage}
+                  lastPage={lastPage}
+                  goToPreviousPage={goToPreviousPage}
+                  goToNextPage={goToNextPage}
+                />
               </main>
               <ButtonUp />
             </>
@@ -130,7 +140,7 @@ function App() {
         />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      
+
       <Footer />
     </div>
   );

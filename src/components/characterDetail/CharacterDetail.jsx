@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import styles from './CharacterDetail.module.scss';
 import defaultImg from '../../assets/images/default-object.avif';
 import NotFound from '../notFound/NotFound';
+import ButtonBack from '../../buttons/buttonBack/ButtonBack';
 
 const CharacterDetail = ({ findCharacter }) => {
   if (findCharacter) {
@@ -26,11 +26,7 @@ const CharacterDetail = ({ findCharacter }) => {
               </div>
             </div>
           </article>
-          <div className={styles.goBack}>
-            <Link to='/' className={styles.goBackLink}>
-              Back
-            </Link>
-          </div>
+          <ButtonBack />
         </section>
       </>
     );

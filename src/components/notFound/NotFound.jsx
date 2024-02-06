@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import styles from './NotFound.module.scss';
+import ButtonBack from '../../buttons/buttonBack/ButtonBack';
 
 const NotFound = () => {
   return (
@@ -7,11 +7,7 @@ const NotFound = () => {
         <p className={styles.errorMsg}>
           Sorry, the character you&apos;re looking for doesn&apos;t seem to exist in our database.
         </p>
-        <div className={styles.goBack}>
-          <Link to='/' className={styles.goBackLink}>
-            Back
-          </Link>
-        </div>
+        <ButtonBack />
       </div>
   );
 }
