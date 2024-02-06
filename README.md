@@ -1,6 +1,6 @@
 # Adalab Module 3 Final evaluation exercise (React)
 
-This repository contains [my solution](http://beta.adalab.es/modulo-3-evaluacion-final-masarom/) to the final evaluation exercise of module 3 of the Adalab Web Programming bootcamp.
+This repository contains [my solution](https://github.com/masarom/rick-morty-vite/) to the final evaluation exercise of module 3 of the Adalab Web Programming bootcamp.
 
 ## Objective
 
@@ -17,7 +17,7 @@ This exercise uses **Create React App**. To start the project:
 ## Working environment
 
 - The files where the project has been developed are located in the `src/` folder.
-- The files displayed by [Github Pages](http://beta.adalab.es/modulo-3-evaluacion-final-masarom/) are located in the `docs/` folder.
+- The files displayed by [Github Pages](https://github.com/masarom/rick-morty-vite) are located in the `docs/` folder.
 
 ## Contact
 
