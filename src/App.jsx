@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, matchPath, useLocation } from "react-router-dom";
 // Styles
-import "./App.scss";
+import styles from "./App.module.scss";
 // services and Components
-import CallToApi from "./services/api";
 // import ls from "./services/localStorage";
+import CallToApi from "./services/api";
 import Hero from "./components/hero/Hero";
 import CharactersList from "./components/charactersList/CharactersList";
 import Filters from "./components/filters/Filters";
@@ -13,11 +13,13 @@ import Pagination from "./components/pagination/Pagination";
 import CharacterDetail from "./components/characterDetail/CharacterDetail";
 import Footer from "./components/footer/Footer";
 import ButtonUp from "./buttons/buttonUp";
+import NotFound from "./components/notFound/NotFound";
 
 function App() {
   // State variables
-  /* const [characters, setCharacters] = useState(ls.get('characters', [])); */
   const [characters, setCharacters] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
   const [filters, setFilters] = useState({
     name: "",
     origin: "",
@@ -25,10 +27,6 @@ function App() {
     status: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
-  // useEffect: use localStorage first to prevent too many petitions to API
-  // UPDATE: leave it COMMENTED as I currently can't change the LS when changing API page
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,18 +35,12 @@ function App() {
         const { cleanData, pagesCount } = await CallToApi(currentPage);
         setCharacters(cleanData);
         setLastPage(pagesCount);
-        /* ls.set('characters', cleanData); */
         setIsLoading(false);
       } catch (error) {
         console.log("Error fetching data: " + error);
       }
     };
     fetchData();
-    /*if (ls.get("characters", null) === null) {
-       CallToApi(currentPage).then((cleanData) => {
-        setCharacters(cleanData);
-        /* ls.set('characters', cleanData);
-        setIsLoading(false); */
   }, [currentPage]);
 
   // pagination
@@ -64,13 +56,12 @@ function App() {
     }
   };
 
-  //functions
+  // filter name, species and origin
   const handleFilter = (name, value) => {
     const clonedFilters = { ...filters, [name]: value };
     setFilters(clonedFilters);
   };
 
-  // filter name, species and origin
   const filteredCharacters = characters
     .filter((eachCharacter) =>
       eachCharacter.name.toLowerCase().includes(filters.name.toLowerCase())
@@ -94,7 +85,7 @@ function App() {
   // Clean array from duplicates
   const uniqueOrigin = [...new Set(origin)];
 
-  // find dinamic routes of every character
+  // Dynamic routes
   const { pathname } = useLocation();
   const routeData = matchPath("/character/:characterId", pathname);
   const characterId = routeData?.params.characterId;
@@ -109,7 +100,7 @@ function App() {
           path='/'
           element={
             <>
-              <main className='main'>
+              <main className={styles.main}>
                 <Hero />
                 <Filters
                   handleFilter={handleFilter}
@@ -118,7 +109,7 @@ function App() {
                   uniqueOrigin={uniqueOrigin}
                 />
                 <Pagination currentPage={currentPage} lastPage={lastPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} />
-                <section className='characters'>
+                <section className={styles.characters}>
                   <CharactersList
                     characters={filteredCharacters}
                     isLoading={isLoading}
@@ -127,6 +118,7 @@ function App() {
                     goToNextPage={goToNextPage}
                   />
                 </section>
+              <Pagination currentPage={currentPage} lastPage={lastPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} /> 
               </main>
               <ButtonUp />
             </>
@@ -136,8 +128,9 @@ function App() {
           path='/character/:characterId'
           element={<CharacterDetail findCharacter={findCharacter} />}
         />
+        <Route path='*' element={<NotFound />} />
       </Routes>
-      <Pagination currentPage={currentPage} lastPage={lastPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} /> 
+      
       <Footer />
     </div>
   );

@@ -67,32 +67,6 @@
   &Status {
     display: block;
   }
-  &Error {
-    height: 100vh;
-    background-image: url("../../assets/images/not-found.avif");
-    background-color: #1d2124ff;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-
-    &Msg {
-      font-size: 1.2rem;
-      @media all and (min-width: 425px) {
-        font-size: 1.4rem;
-      }
-      @media all and (min-width: 768px) {
-        font-size: 1.6rem;
-        margin-top: 45px;
-      }
-      max-width: 70%;
-      margin-top: 20px;
-      color: $white;
-      text-align: center;
-    }
-  }
 }
 
 .goBack {

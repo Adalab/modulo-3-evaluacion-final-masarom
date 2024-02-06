@@ -6,7 +6,7 @@ import styles from "./ButtonUp.module.scss";
 const ButtonUp = () => {
   return (
     <Link to='/#hero' className={styles.buttonUpLink}>
-      <FontAwesomeIcon icon={faChevronUp} inverse className={styles.buttonUp} />
+      <FontAwesomeIcon icon={faChevronUp} inverse className={styles.buttonUp} title="Go up" />
     </Link>
   );
 };

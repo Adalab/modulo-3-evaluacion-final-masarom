@@ -10,16 +10,16 @@ const CharacterCard = ({ eachCharacter }) => {
         <img
           className={styles.characterCardImage}
           src={eachCharacter.image}
-          alt={`Foto de ${eachCharacter.name}`}
-          title={`Foto de ${eachCharacter.name}`}
+          alt={`Pictoure of ${eachCharacter.name}`}
+          title={`Pictoure of ${eachCharacter.name}`}
         />
-        <h3 className={styles.characterCardName}>{eachCharacter.name}</h3>
-        <div >
-          <span className={styles.characterCardSpecies}>{eachCharacter.species}</span>
-          <span className={styles.characterCardStatus}>
-            <i className={eachCharacter.status === 'Dead' ? 'fa-solid fa-skull-crossbones' : null}></i>
-          </span>
-        </div>
+          <h3 className={styles.characterCardName}>{eachCharacter.name}</h3>
+          <div>
+            <span className={styles.characterCardSpecies}>{eachCharacter.species}</span>
+            <span className={styles.characterCardStatus}>
+              <i className={eachCharacter.status === 'Dead' ? 'fa-solid fa-skull-crossbones' : null}></i>
+            </span>
+          </div>
       </Link>
     </>
   );

@@ -18,6 +18,7 @@ const Pagination = ({ currentPage, lastPage, goToPreviousPage, goToNextPage }) =
         className={styles.paginationBtn}
         name='prev'
         onClick={handlePrevPg}
+        title="Previous page"
       >
         Previous
       </button>
@@ -26,6 +27,7 @@ const Pagination = ({ currentPage, lastPage, goToPreviousPage, goToNextPage }) =
         className={styles.paginationBtn}
         name='next'
         onClick={handleNextPg}
+        title="Next page"
       >
         Next
       </button>
