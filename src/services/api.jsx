@@ -14,7 +14,8 @@ const CallToApi = (page) => {
             status: eachData.status,
           };
         });
-        return cleanData;
+        const pagesCount = data.info.pages;
+        return {cleanData, pagesCount};
       })
       .catch((error) => alert('ha habido un error: ' + error));
   };

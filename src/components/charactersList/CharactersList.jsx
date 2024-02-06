@@ -4,7 +4,7 @@ import CharacterCard from '../characterCard/CharacterCard';
 import defaultImg from '../../assets/images/default-object.jpg';
 import Pagination from '../pagination/Pagination';
 
-const CharactersList = ({ characters, isLoading, currentPage, goToPreviousPage, goToNextPage }) => {
+const CharactersList = ({ characters, isLoading }) => {
   // add loading message before fetch
   if (isLoading) {
     return <p className={styles.characterErrorMsg}>Loading...</p>;
@@ -32,7 +32,6 @@ const CharactersList = ({ characters, isLoading, currentPage, goToPreviousPage, 
     };
     return (
       <>
-        <Pagination currentPage={currentPage} goToPreviousPage={goToPreviousPage} goToNextPage={goToNextPage} />
         <ul className={styles.characterList}>{characters.length === 0 ? filterErrorMsg() : charactersLi}</ul>
       </>
     );

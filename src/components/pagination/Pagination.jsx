@@ -1,6 +1,6 @@
 import styles from "./Pagination.module.scss";
 
-const Pagination = ({ currentPage, goToPreviousPage, goToNextPage }) => {
+const Pagination = ({ currentPage, lastPage, goToPreviousPage, goToNextPage }) => {
   const handlePrevPg = (ev) => {
     ev.preventDefault();
     return goToPreviousPage();
@@ -20,7 +20,7 @@ const Pagination = ({ currentPage, goToPreviousPage, goToNextPage }) => {
       >
         Prev
       </button>
-      <span className={styles.paginationText}>Page {currentPage} of 42</span>
+      <span className={styles.paginationText}>Page {currentPage} of {lastPage}</span>
       <button
         className={styles.paginationBtn}
         name='next'
